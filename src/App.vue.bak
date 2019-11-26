@@ -1,0 +1,49 @@
+<template>
+	<div id="app">
+		<!-- 在模板中使用 -->
+		<v-home></v-home>
+
+		<br />
+		<hr />
+		<br />
+		
+		<v-news></v-news>
+	</div>
+</template>
+
+<script>
+	// 引入组件
+	import Home from './components/Home01.vue';
+	import News from './components/News.vue';
+	// import Home from './components/Home.vue';
+	export default {
+		name: 'app',
+		data() {
+			return {
+				msg: '你好vue'
+			}
+		},
+		components: { // 挂载组件 
+			'v-home': Home,
+			'v-news': News
+		},
+		methods: { // 自定义方法
+
+		},
+		mounted() {
+
+		}
+	}
+</script>
+
+<style lang="scss">
+	#app {
+		font-family: 'Avenir', Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		// text-align: center;
+		color: #2c3e50;
+		// margin-top: 60px;
+
+	}
+</style>

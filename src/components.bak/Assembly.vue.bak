@@ -1,0 +1,26 @@
+<template>
+	<div id="Assembly">
+		<h2>这是一个首页组件--{{msg}}</h2>
+		<el-button type="success" round @click="run()">获取表单里面的数据get</el-button>
+	</div>
+</template>
+
+<script>
+	export default {
+		name: 'Assembly',
+		data() {
+			return {
+				msg: '我是一个首页组件',
+				flag: true
+			}
+		},
+		methods: {
+			run() {
+				alert(this.msg);
+			},
+		}
+	}
+</script>
+
+<style>
+</style>

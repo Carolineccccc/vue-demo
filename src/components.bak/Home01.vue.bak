@@ -1,0 +1,46 @@
+<template>
+	<div id="home01">
+		我是首页组件
+
+		<br />
+
+		<button @click="emitNews()">给news组件广播数据</button>
+
+		<br />
+
+
+	</div>
+</template>
+
+<script>
+	// 引入实例
+	import VueEvent from '../model/VueEvent.js';
+
+	export default {
+		name: 'home01',
+		data() {
+			return {
+				msg: "这是home01组件",
+				title: "首页111"
+			}
+		},
+		components: { // 挂载组件
+
+		},
+		methods: { // 自定义方法
+			emitNews() {
+				// 广播数据
+				VueEvent.$emit('to-news', this.msg)
+			}
+		},
+		mounted() { // 请求数据、操作dom，放在这个里面 必须记住 mounted
+			VueEvent.$on('to-home', function(data) {
+				console.log(data)
+			});
+		}
+	}
+</script>
+
+<style>
+
+</style>

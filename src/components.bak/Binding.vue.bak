@@ -1,0 +1,75 @@
+<template>
+	<div id="binding">
+		双向绑定
+		<el-input v-model="msg" style="width: 200px;"></el-input>
+		<el-button type="success" round @click="getMsg">获取表单里面的数据get</el-button>
+		<hr />
+		<br />
+		<br />
+		<br />
+		<input type="text" ref="userinfo" />
+		<el-button @click="getInputVal">获取第二个表单里面的数据</el-button>
+		<hr />
+		<br />
+		<br />
+		<br />
+		<div ref="box">box</div>
+		<el-button type="success" round @click="setMsg">设置表单里面的数据set</el-button>
+		<hr />
+		<br />
+		<br />
+		<br />
+		<el-button type="success" round @click="requestData()">设置表单里面的数据set</el-button>
+	</div>
+</template>
+
+<script>
+	export default {
+		name: 'binding',
+		data() {
+			return {
+				msg: '你好vue',
+				list: ['a']
+			}
+		},
+		components: { // 挂载组件
+
+		},
+		methods: { // 自定义方法
+			getMsg() {
+				alert(this.msg);
+			},
+			getInputVal() {
+				// 获取ref定义的dom节点
+				console.log(this.$refs.userinfo);
+				this.$refs.box.style.background = "red"
+			},
+			setMsg() {
+				this.msg = "我是改变后的数据";
+			},
+			requestData() {
+				for (let i = 0; i < 10; i++) {
+					this.list.push("列表数据" + i);
+				}
+			}
+		},
+		mounted() {
+			console.log("我是一个生命周期函数");
+		}
+	}
+</script>
+
+<style>
+	.transition-box {
+		margin-bottom: 10px;
+		width: 200px;
+		height: 100px;
+		border-radius: 4px;
+		background-color: #409EFF;
+		text-align: center;
+		color: #fff;
+		padding: 40px 20px;
+		box-sizing: border-box;
+		margin-right: 20px;
+	}
+</style>

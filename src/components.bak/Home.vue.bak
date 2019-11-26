@@ -1,0 +1,62 @@
+<template>
+	<div id="home">
+
+		<v-header ref='header'></v-header>
+		<hr>
+		首页组件
+		<!-- <v-axios></v-axios> -->
+		<!-- <v-vueresource></v-vueresource> -->
+		<!-- <el-button type="success" round @click="flag=!flag">挂载以及卸载life组件</el-button> -->
+		<!-- <v-life v-if="flag"></v-life> -->
+		<!-- <v-assembly></v-assembly> -->
+		<!-- <v-header :title="title" :run="run" :home="this"></v-header> -->
+		<button @click="getChildFunc()">获取子组件的方法</button>
+	</div>
+</template>
+
+<script>
+	// import Header from './Header.vue';
+	import Header from './Header01.vue';
+	import Life from './Life.vue';
+	import News from './News.vue';
+	import Binding from './Binding.vue';
+	import Assembly from './Assembly.vue';
+	import GetDataVueResource from './GetDataVueResource.vue';
+	import GetDataAxios from './GetDataAxios.vue';
+
+	export default {
+		data() {
+			return {
+				msg: '我是一个首页组件',
+				title: '首页'
+			}
+		},
+		components: {
+			'v-header': Header, // 头部组件
+			'v-life': Life, // 生命周期
+			'v-news': News, // 新闻组件
+			'v-binding': Binding, // 双向绑定
+			'v-assembly': Assembly, // 组件
+			'v-vueresource': GetDataVueResource, // VueResource请求数据
+			'v-axios': GetDataAxios, // VueResource请求数据
+		},
+		methods: {
+			run(data) {
+				alert('父组件的run方法');
+			},
+			getChildData() {
+				alert(this.$refs.header.msg)
+			},
+			getChildFunc() {
+				this.$refs.header.run();
+			}
+		}
+	}
+</script>
+
+<style>
+	.el-menu-vertical-demo:not(.el-menu--collapse) {
+		width: 200px;
+		min-height: 400px;
+	}
+</style>

@@ -1,0 +1,36 @@
+<template>
+	<div id="header01">
+		父子组件之间的传值
+		<h2>我是头部组件</h2>
+		<button @click="getParentData()">获取父组件的方法</button>
+	</div>
+</template>
+
+<script>
+	export default {
+		name: 'header01',
+		data() {
+			return {
+				msg: '子组件的msg'
+			}
+		},
+		components: { // 挂载组件
+
+		},
+		methods: { // 自定义方法
+			run() {
+				alert("我是子组件的run方法");
+			},
+			getParentData() {
+				this.$parent.run();
+			}
+		},
+		mounted() { // 请求数据、操作dom，放在这个里面 必须记住 mounted
+			// this.getParentData()
+		}
+	}
+</script>
+
+<style>
+
+</style>
